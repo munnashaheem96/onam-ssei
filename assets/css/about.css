@@ -1,0 +1,144 @@
+:root {
+  --primary-color: #d35400; /* dark orange */
+  --primary-light: #e67e22;
+  --dark-color: #1f1f1f;
+  --text-color: #333;
+  --white: #fff;
+}
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+  background-color: #f9f9f9;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Section spacing */
+.about-onam {
+  padding: 5rem 0;
+}
+
+/* Flex & grid replacements */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.col {
+  flex: 1;
+}
+
+.col-3 {
+  flex: 0 0 25%;
+}
+
+.col-4 {
+  flex: 0 0 calc(33.333% - 1.33rem);
+}
+
+.col-9 {
+  flex: 0 0 75%;
+}
+
+/* Badge & heading section */
+.round-36 {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge {
+  background-color: var(--dark-color);
+  color: var(--white);
+  font-size: 0.85rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 20px;
+}
+
+.border-line {
+  flex: 1;
+  height: 2px;
+  background-color: var(--primary-color);
+  border: none;
+}
+
+/* Card styles */
+.card {
+  background-color: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.bg-primary {
+  background-color: var(--primary-light);
+}
+
+.bg-dark {
+  background-color: var(--dark-color);
+  color: var(--white);
+}
+
+.text-dark {
+  color: var(--dark-color);
+}
+
+.border-bottom {
+  border-bottom: 2px solid var(--dark-color);
+}
+
+.logo-dark img {
+  max-width: 150px;
+}
+
+/* Decorative circles */
+.round-490 {
+  width: 490px;
+  height: 490px;
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  opacity: 0.15;
+  position: absolute;
+}
+
+/* Utility */
+.mb-0 { margin-bottom: 0; }
+.fs-5 { font-size: 1.25rem; }
+.fs-6 { font-size: 1rem; }
+.pb-6 { padding-bottom: 1.5rem; }

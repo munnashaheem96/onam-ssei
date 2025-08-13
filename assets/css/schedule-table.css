@@ -1,0 +1,92 @@
+/* schedule-table.css */
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff; /* Match the light theme */
+  border-radius: 12px;
+  overflow: hidden; /* Ensures rounded corners apply to children */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.schedule-table thead {
+  background-color: #f7f7f7; /* Lighter header background */
+  color: #333;
+}
+
+.schedule-table th,
+.schedule-table td {
+  padding: 18px 25px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0; /* Light gray border for separation */
+  font-family: inherit; /* Inherit font from the body */
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.schedule-table th {
+  font-weight: 700; /* Bold headers */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #555;
+}
+
+.schedule-table tbody tr:nth-child(even) {
+  background-color: #fcfcfc; /* Alternate row color for readability */
+}
+
+.schedule-table tbody tr:hover {
+  background-color: #f0f8ff; /* Highlight row on hover */
+  cursor: pointer;
+}
+
+.schedule-table td:first-child {
+  font-weight: 600; /* Bold the time column */
+  color: #007bff; /* Use primary color for time */
+  white-space: nowrap; /* Prevent time from wrapping */
+}
+
+.schedule-table tbody tr:last-child td {
+  border-bottom: none; /* Remove border from the last row */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .schedule-table,
+  .schedule-table thead,
+  .schedule-table tbody,
+  .schedule-table th,
+  .schedule-table td,
+  .schedule-table tr {
+    display: block;
+  }
+
+  .schedule-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .schedule-table td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+  }
+
+  .schedule-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .schedule-table td:before {
+    content: attr(data-label);
+  }
+}
