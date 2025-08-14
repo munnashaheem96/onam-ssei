@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Testimony About Aarmaadham'24",
+    "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam, voluptates deserunt nulla, eius ratione molestias.",
+    "name": "Albert Flores",
+    "company": "MasterCard",
+    "image": "../assets/images/testimonial/testimonial-1.jpg",
+    "rating": null
+  },
+  {
+    "title": "Onam Festival Story",
+    "text": "Onam is a celebration that brings people together, reminding us of harmony, prosperity, and cultural pride. The vibrant colors, traditional games, and joyful spirit reflect timeless values of our heritage.",
+    "name": "Robert Fox",
+    "company": "Mitsubishi",
+    "image": "../assets/images/testimonial/testimonial-2.jpg",
+    "rating": 5
+  },
+  {
+    "title": "Great Experience",
+    "text": "Super smooth process with incredible results. Highly recommend!",
+    "name": "Jenny Wilson",
+    "company": "Pizza Hut",
+    "image": "../assets/images/testimonial/testimonial-3.jpg",
+    "rating": null
+  },
+  {
+    "title": "Great Experience",
+    "text": "Super smooth process with incredible results. Highly recommend!",
+    "name": "Jenny Wilson",
+    "company": "Pizza Hut",
+    "image": "../assets/images/testimonial/testimonial-3.jpg",
+    "rating": null
+  },
+  {
+    "title": "Great Experience",
+    "text": "Super smooth process with incredible results. Highly recommend!",
+    "name": "Jenny Wilson",
+    "company": "Pizza Hut",
+    "image": "../assets/images/testimonial/testimonial-3.jpg",
+    "rating": null
+  }
+]

@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aarmaadham'24 Memories - View More</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <!-- AOS CSS for animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link
+    rel="shortcut icon"
+    type="image/png"
+    href="../assets/images/logos/favicon.png"
+  />
+  <link
+    rel="stylesheet"
+    href="../assets/libs/owl.carousel/dist/assets/owl.carousel.min.css"
+  />
+  <link rel="stylesheet" href="../assets/libs/aos-master/dist/aos.css" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="/assets/css/sponsers.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  <link rel="stylesheet" href="/assets/css/testimony.css" />
+  <link rel="stylesheet" href="/assets/css/registration.css" />
+  <link rel="stylesheet" href="/assets/css/flipclock.css" />
+  <link rel="stylesheet" href="assets/css/schedule.css" />
+  <link rel="stylesheet" href="/assets/css/buttonReg.css" />
+
+  <!-- Firebase App (the core Firebase SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <!-- Firestore SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+
+  <style>
+    body {
+      background-color: #fff;
+      color: #212529;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .onam-memories {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+
+    .round-36 {
+      width: 36px;
+      height: 36px;
+      line-height: 36px;
+      font-weight: 500;
+      font-size: 1rem;
+      text-align: center;
+      border-radius: 50%;
+      background-color: #0d6efd;
+      color: #fff;
+      display: inline-block;
+    }
+
+    .border-line {
+      width: 50px;
+      margin: 0 1rem;
+      border: 1px solid #212529;
+      opacity: 0.1;
+    }
+
+    .badge.text-bg-dark {
+      background-color: #212529;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 0.25rem;
+    }
+
+    h2 {
+      font-weight: 700;
+      font-size: 2.5rem;
+    }
+
+    p.fs-5 {
+      font-size: 1.25rem;
+      color: rgba(33, 37, 41, 0.7);
+    }
+
+    .meet-team {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .meet-team-img {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 15px rgb(0 0 0 / 0.1);
+      cursor: pointer;
+    }
+
+    .meet-team-img img {
+      display: block;
+      width: auto;
+      height: 100%;
+      transition: transform 0.4s ease;
+    }
+
+    .meet-team-img:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Fullscreen icon overlay */
+    .fullscreen-icon {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: darkorange;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      z-index: 2;
+    }
+
+    .fullscreen-icon:hover {
+      background: orange;
+    }
+
+    .fullscreen-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: white;
+    }
+
+    /* Modal styles */
+    #imageModal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 1050;
+      flex-direction: column;
+    }
+
+    #imageModal.active {
+      display: flex;
+    }
+
+    #modalImage {
+      max-width: 90vw;
+      max-height: 80vh;
+      border-radius: 8px;
+      user-select: none;
+      -webkit-user-drag: none;
+      transition: opacity 0.3s ease;
+    }
+
+    #modalControls {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #modalControls button,
+    #modalControls a {
+      background: #0d6efd;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+
+    #modalControls button:hover,
+    #modalControls a:hover {
+      background: #0b5ed7;
+      text-decoration: none;
+    }
+
+    #modalCaption {
+      margin-top: 0.5rem;
+      color: #ddd;
+      font-size: 1rem;
+      max-width: 90vw;
+      text-align: center;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <header
+      class="header border-4 border-primary border-top position-fixed start-0 top-0 w-100"
+    >
+      <div class="container">
+        <div
+          class="header-wrapper d-flex align-items-center justify-content-between"
+        >
+          <div class="logo">
+            <a href="index.html" class="logo-white">
+              <img
+                src="../assets/images/logos/logo-dark.png"
+                alt="logo"
+                height="60px"
+              />
+            </a>
+            <a href="index.html" class="logo-dark">
+              <img
+                src="../assets/images/logos/logo-white.png"
+                alt="logo"
+                height="60px"
+              />
+            </a>
+          </div>
+          <div class="d-flex align-items-center gap-4">
+            <button
+              class="button-86"
+              role="button"
+              onclick="location.href='/index.html#register'"
+            >
+              Registration
+            </button>
+            <div class="btn-group">
+              <button
+                class="btn btn-secondary toggle-menu round-45 p-2 d-flex align-items-center justify-content-center rounded-circle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="true"
+                aria-expanded="false"
+              >
+                <iconify-icon
+                  icon="solar:hamburger-menu-line-duotone"
+                  class="menu-icon fs-8"
+                ></iconify-icon>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end p-4">
+                <div class="d-flex flex-column gap-6">
+                  <div
+                    class="hstack justify-content-between border-bottom pb-6"
+                  >
+                    <p class="mb-0 fs-5">Menu</p>
+                    <button
+                      type="button"
+                      class="btn-close opacity-75"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="d-flex flex-column gap-3">
+                    <ul
+                      class="header-menu list-unstyled mb-0 d-flex flex-column gap-2"
+                    >
+                      <li class="header-item">
+                        <a
+                          href="/index.html"
+                          aria-current="true"
+                          class="header-link active hstack gap-2 fs-7 fw-bold"
+                          ><img
+                            src="../assets/images/svgs/secondary-leaf.svg"
+                            alt=""
+                            width="20"
+                            height="20"
+                            class="img-fluid animate-spin"
+                          />Home</a
+                        >
+                      </li>
+                      <li class="header-item">
+                        <a
+                          href="/index.html#about"
+                          class="header-link hstack gap-2 fs-7 fw-bold"
+                          ><img
+                            src="../assets/images/svgs/secondary-leaf.svg"
+                            alt=""
+                            width="20"
+                            height="20"
+                            class="img-fluid animate-spin"
+                          />About</a
+                        >
+                      </li>
+                      <li class="header-item">
+                        <a
+                          href="/index.html#schedule"
+                          class="header-link hstack gap-2 fs-7 fw-bold"
+                          ><img
+                            src="../assets/images/svgs/secondary-leaf.svg"
+                            alt=""
+                            width="20"
+                            height="20"
+                            class="img-fluid animate-spin"
+                          />Schedule</a
+                        >
+                      </li>
+                      <li class="header-item">
+                        <a
+                          href="/index.html#iconic-items"
+                          class="header-link hstack gap-2 fs-7 fw-bold"
+                          ><img
+                            src="../assets/images/svgs/secondary-leaf.svg"
+                            alt=""
+                            width="20"
+                            height="20"
+                            class="img-fluid animate-spin"
+                          />Iconic Programs</a
+                        >
+                      </li>
+                      <li class="header-item">
+                        <a
+                          href="/index.html#testimony"
+                          class="header-link hstack gap-2 fs-7 fw-bold"
+                          ><img
+                            src="../assets/images/svgs/secondary-leaf.svg"
+                            alt=""
+                            width="20"
+                            height="20"
+                            class="img-fluid animate-spin"
+                          />Testimony</a
+                        >
+                      </li>
+                      <li class="header-item">
+                        <a
+                          href="/index.html#gallery"
+                          class="header-link hstack gap-2 fs-7 fw-bold"
+                          ><img
+                            src="../assets/images/svgs/secondary-leaf.svg"
+                            alt=""
+                            width="20"
+                            height="20"
+                            class="img-fluid animate-spin"
+                          />Gallery</a
+                        >
+                      </li>
+                      <li class="header-item">
+                        <a
+                          href="/index.html#fundraising"
+                          class="header-link hstack gap-2 fs-7 fw-bold"
+                          ><img
+                            src="../assets/images/svgs/secondary-leaf.svg"
+                            alt=""
+                            width="20"
+                            height="20"
+                            class="img-fluid animate-spin"
+                          />Fundraising</a
+                        >
+                      </li>
+                      <li class="header-item">
+                        <a
+                          href="/index.html#register"
+                          class="header-link hstack gap-2 fs-7 fw-bold"
+                          ><img
+                            src="../assets/images/svgs/secondary-leaf.svg"
+                            alt=""
+                            width="20"
+                            height="20"
+                            class="img-fluid animate-spin"
+                          />Register</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <a
+                      href="mailto:munnashaheemperinchikkal@gmail.com"
+                      style="font-size: small"
+                      >munnashaheemperinchikkal@gmail.com</a
+                    >
+                  </div>
+                </div>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  <section class="onam-memories py-5 py-lg-11 py-xl-12" id="gallery">
+    <div class="container">
+      <div class="d-flex flex-column gap-5 gap-xl-11">
+        <div class="row gap-7 gap-xl-0">
+          <!-- <div class="col-xl-4 col-xxl-4">
+            <div
+              class="d-flex align-items-center gap-7 py-2"
+              data-aos="fade-right"
+              data-aos-delay="100"
+              data-aos-duration="1000"
+            >
+              <span
+                class="round-36 flex-shrink-0 text-dark rounded-circle bg-primary hstack justify-content-center fw-medium"
+                >05</span
+              >
+              <hr class="border-line bg-white" />
+              <span class="badge text-bg-dark">Gallery</span>
+            </div>
+          </div> -->
+          <center>
+            <div class="col-xl-8 col-xxl-7" style="padding-top: 100px;">
+            <div class="row" style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+              <div class="col-xxl-8">
+                <div
+                  class="d-flex flex-column gap-6"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                  data-aos-duration="1000"
+                  style="display: flex; flex-direction: row; justify-content: center; align-items: center;"
+                >
+                  <h2 class="mb-0">Aarmaadham'24 Memories</h2>
+                  <p class="fs-5 mb-0 text-opacity-70">
+                    A look back at the joyful moments from our previous Onam
+                    celebrations!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          </center>
+        </div>
+
+        <!-- Dynamic gallery container -->
+        <div
+          id="gallery-container"
+          class="row mt-5"
+          style="gap: 20px; justify-content: center;"
+        ></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fullscreen Modal -->
+  <div id="imageModal" tabindex="-1" aria-modal="true" role="dialog" aria-hidden="true">
+    <img id="modalImage" src="" alt="" />
+    <div id="modalCaption"></div>
+    <div id="modalControls">
+      <button id="prevBtn" aria-label="Previous image">Prev</button>
+      <button id="nextBtn" aria-label="Next image">Next</button>
+      <a id="downloadBtn" href="#" download aria-label="Download image">Download</a>
+      <button id="closeModal" aria-label="Close modal">Close</button>
+    </div>
+  </div>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <script>
+    async function loadGallery() {
+      try {
+        const response = await fetch('gallery-data.json');
+        if (!response.ok) {
+          throw new Error('Failed to fetch gallery data');
+        }
+        const data = await response.json();
+
+        const container = document.getElementById('gallery-container');
+
+        data.forEach((item, index) => {
+          const col = document.createElement('div');
+          col.className = 'col-md-6 col-xl-3 mb-7 mb-xl-0';
+          col.setAttribute('data-aos', 'fade-up');
+          col.setAttribute('data-aos-delay', 400 + index * 100);
+          col.setAttribute('data-aos-duration', '1000');
+
+          // Gallery item HTML with fullscreen icon overlay
+          col.innerHTML = `
+            <div class="meet-team d-flex flex-column gap-4">
+              <div class="meet-team-img position-relative overflow-hidden rounded-3" data-index="${index}">
+                <img src="${item.src}" alt="${item.alt}" class="img-fluid w-100" />
+                <div class="fullscreen-icon" title="View fullscreen">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" >
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <polyline points="9 21 3 21 3 15"></polyline>
+                    <line x1="21" y1="3" x2="14" y2="10"></line>
+                    <line x1="3" y1="21" x2="10" y2="14"></line>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          `;
+
+          container.appendChild(col);
+        });
+      } catch (error) {
+        console.error('Error loading gallery:', error);
+      }
+    }
+
+    loadGallery();
+
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalCaption = document.getElementById('modalCaption');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const closeModalBtn = document.getElementById('closeModal');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    let galleryData = [];
+    let currentIndex = 0;
+
+    // Fetch gallery data once and keep reference
+    async function fetchGalleryData() {
+      try {
+        const response = await fetch('gallery-data.json');
+        if (!response.ok) throw new Error('Failed to fetch gallery data');
+        galleryData = await response.json();
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    fetchGalleryData();
+
+    // Open modal and show image at index
+    function openModal(index) {
+      if (index < 0) index = galleryData.length - 1;
+      if (index >= galleryData.length) index = 0;
+      currentIndex = index;
+
+      const img = galleryData[currentIndex];
+      modalImage.src = img.src;
+      modalImage.alt = img.alt;
+      modalCaption.textContent = img.alt || '';
+      downloadBtn.href = img.src;
+
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden'; // prevent background scroll
+    }
+
+    // Close modal
+    function closeModal() {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = ''; // restore scroll
+    }
+
+    // Show previous image
+    function showPrev() {
+      openModal(currentIndex - 1);
+    }
+
+    // Show next image
+    function showNext() {
+      openModal(currentIndex + 1);
+    }
+
+    // Click handlers on gallery images or fullscreen icon
+    document.getElementById('gallery-container').addEventListener('click', (e) => {
+      // Check if clicked inside meet-team-img div
+      const imgDiv = e.target.closest('.meet-team-img');
+      if (!imgDiv) return;
+
+      const idx = parseInt(imgDiv.getAttribute('data-index'), 10);
+      if (isNaN(idx)) return;
+
+      openModal(idx);
+    });
+
+    // Modal controls
+    closeModalBtn.addEventListener('click', closeModal);
+    prevBtn.addEventListener('click', showPrev);
+    nextBtn.addEventListener('click', showNext);
+
+    // Close modal if click outside image
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Keyboard navigation: ESC to close, arrows to navigate
+    document.addEventListener('keydown', (e) => {
+      if (!modal.classList.contains('active')) return;
+
+      switch (e.key) {
+        case 'Escape':
+          closeModal();
+          break;
+        case 'ArrowLeft':
+          showPrev();
+          break;
+        case 'ArrowRight':
+          showNext();
+          break;
+      }
+    });
+  </script>
+   <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="../assets/libs/aos-master/dist/aos.js"></script>
+    <script src="../assets/js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <script>
+      // Set the date for Onam (e.g., September 1, 2025)
+      const onamDate = new Date("September 1, 2025 00:00:00").getTime();
+
+      const countdown = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = onamDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("hours").innerText = hours
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("minutes").innerText = minutes
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("seconds").innerText = seconds
+          .toString()
+          .padStart(2, "0");
+
+        if (distance < 0) {
+          clearInterval(countdown);
+          document.getElementById("countdown").innerHTML =
+            "<h3 class='text-success'>Happy Onam!</h3>";
+        }
+      }, 1000);
+    </script>
+    <script>
+      function animateCounter(id, endValue, duration) {
+        const element = document.getElementById(id);
+        let start = 0;
+        const increment = endValue / (duration / 10);
+
+        const counter = setInterval(() => {
+          start += increment;
+          if (start >= endValue) {
+            start = endValue;
+            clearInterval(counter);
+          }
+          element.innerText = Math.floor(start).toLocaleString();
+        }, 10);
+      }
+
+      // Trigger the animation after page load
+      document.addEventListener("DOMContentLoaded", function () {
+        animateCounter("total-amount", 159500, 2000); // duration in ms
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      fetch("../assets/data/testimonials.json")
+        .then((response) => response.json())
+        .then((testimonials) => {
+          const container = document.getElementById("testimonial-container-2");
+
+          testimonials.forEach((testimonial) => {
+            container.innerHTML += `
+          <div class="swiper-slide">
+            <div class="testimonial-card-2">
+              <p class="testimonial-text-2">"${testimonial.text}"</p>
+              <div class="testimonial-author-2">
+                <img src="${testimonial.image}" alt="${testimonial.name}" width="60" height="60">
+                <div class="testimonial-author-info-2">
+                  <h5>${testimonial.name}</h5>
+                  <p>${testimonial.company}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+          });
+
+          new Swiper(".testimonial-slider-2", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+              delay: 5000,
+              disableOnInteraction: false,
+            },
+            navigation: {
+              nextEl: ".swiper-button-next-2",
+              prevEl: ".swiper-button-prev-2",
+            },
+            breakpoints: {
+              768: { slidesPerView: 2 },
+              1200: { slidesPerView: 3 },
+            },
+          });
+        });
+    </script>
+</body>
+</html>

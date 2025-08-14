@@ -1,0 +1,19 @@
+#sponsers{
+    height: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(243, 243, 243);
+}
+
+#sponsers img{
+    height: 80px;
+}
+#associateSponser{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
