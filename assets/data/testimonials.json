@@ -1,39 +1,23 @@
 [
   {
-    "title": "Testimony About Aarmaadham'24",
-    "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam, voluptates deserunt nulla, eius ratione molestias.",
-    "name": "Albert Flores",
-    "company": "MasterCard",
-    "image": "../assets/images/testimonial/testimonial-1.jpg",
-    "rating": null
-  },
-  {
-    "title": "Onam Festival Story",
-    "text": "Onam is a celebration that brings people together, reminding us of harmony, prosperity, and cultural pride. The vibrant colors, traditional games, and joyful spirit reflect timeless values of our heritage.",
-    "name": "Robert Fox",
-    "company": "Mitsubishi",
-    "image": "../assets/images/testimonial/testimonial-2.jpg",
-    "rating": 5
-  },
-  {
     "title": "Great Experience",
-    "text": "Super smooth process with incredible results. Highly recommend!",
-    "name": "Jenny Wilson",
-    "company": "Pizza Hut",
-    "image": "../assets/images/testimonial/testimonial-2.jpg",
+    "text": "Armadam 2024, Sri Shanmugha College’s first grand Onam, lit up with cultural programs, traditional attire, pookalam, Thiruvathira, music, games, and payasam—creating unforgettable festive memories.",
+    "name": "Munna Shaheem P",
+    "company": "3rd Year CSE",
+    "image": "../assets/images/testimonial/munna.JPG",
     "rating": null
   },
   {
     "title": "Great Experience",
-    "text": "Super smooth process with incredible results. Highly recommend!",
-    "name": "Jenny Wilson",
-    "company": "Pizza Hut",
-    "image": "../assets/images/testimonial/testimonial-2.jpg",
+    "text": "Aarmaadham'24 was indeed a highlight of my Onam experiences so far! Shanmugha's enthusiasm and energy are infectious, and I'm looking forward to Asthra'25 being another memorable celebration!",
+    "name": "Fathima Jinan",
+    "company": "3rd Year AIDS",
+    "image": "../assets/images/testimonial/jinan.jpg",
     "rating": null
   },
   {
     "title": "Great Experience",
-    "text": "Armadam 2024, hosted by the 2021–2024 batch, was the first grand Onam celebration and a historic highlight of Sri Shanmugha College. With vibrant pookalam, graceful Thiruvathira, energetic performances, fun games, and delicious payasam, it united students and management in a joyful celebration, setting a benchmark for future events.",
+    "text": "Armadam 2024, by the 2021–2024 batch, was Sri Shanmugha College’s first grand Onam, with pookalam, Thiruvathira, performances, games & payasam—uniting all in joyous celebration.",
     "name": "Fadal",
     "company": "Alumni",
     "image": "../assets/images/testimonial/testimonial-3.jpg",
