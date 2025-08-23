@@ -11,12 +11,12 @@
      display: flex;
      flex-direction: column;
      gap: 20px;
-     height: 400px; /* Adjust this value as needed */
-     overflow: hidden; /* This prevents content from overflowing the card */
+     height: 500px;
+     overflow: hidden;
    }
 
 .testimonial-text-2 {
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1.6;
   color: #495057;
   flex-grow: 1;

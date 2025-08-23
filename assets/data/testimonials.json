@@ -1,6 +1,14 @@
 [
   {
     "title": "Great Experience",
+    "text": "Aarmadam’24 was a remarkable celebration that highlighted the cultural diversity, unity, and enthusiasm of Sri Shanmugha. With students leading every detail, it became an unforgettable experience of joy and togetherness. As we look forward to Asthra’25, the anticipation is even greater, and the name itself sparks much curiosity—I’m truly excited to witness the spirit of Onam come alive once again.",
+    "name": "Gokila Shanmugham",
+    "company": "Joint Secretary SSEI",
+    "image": "../assets/images/testimonial/GOKILA.jpeg",
+    "rating": null
+  },
+  {
+    "title": "Great Experience",
     "text": "Armadam 2024, Sri Shanmugha College’s first grand Onam, lit up with cultural programs, traditional attire, pookalam, Thiruvathira, music, games, and payasam—creating unforgettable festive memories.",
     "name": "Munna Shaheem P",
     "company": "3rd Year CSE",
@@ -21,6 +29,14 @@
     "name": "Muhammed Shadhil",
     "company": "2023 BSc CT",
     "image": "../assets/images/testimonial/SHADHIL.jpg",
+    "rating": null
+  },
+  {
+    "title": "Great Experience",
+    "text": "Last year’s Onam was truly special. From the colorful pookkalam to everyone in traditional attire, the festive spirit made it feel like one big family. What I cherished most was the joy of sitting together, sharing laughter, and celebrating our togetherness.",
+    "name": "Wafa",
+    "company": "2023 BSc RIT",
+    "image": "../assets/images/testimonial/wafa.png",
     "rating": null
   },
   {

@@ -66,7 +66,7 @@
             <button
               class="button-86"
               role="button"
-              onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})"
+              onclick="document.getElementById('register').scrollIntoView({behavior: 'smooth'})"
             >
               Registration
             </button>
@@ -1320,11 +1320,41 @@
                   </div>
                   <div>
                     <input
-                      type="email"
-                      name="email"
+                      type="tel"
+                      name="phone"
                       class="form-control border-bottom border-dark"
-                      id="emailInput"
-                      placeholder="Email"
+                      id="phoneInput"
+                      placeholder="WhatsApp Number"
+                      required
+                    />
+                  </div>
+                  <div style="display: flex;flex-direction: row; gap: 10px;">
+                    <select
+                      name="collegeSelect"
+                      class="form-select border-bottom border-dark"
+                      id="collegeSelect"
+                      required
+                    >
+                      <option value="Engineering">
+                        Engineering
+                      </option>
+                      <option value="Allied Health Science">
+                        Allied Health Science
+                      </option>
+                      <option value="Nursing">Nursing</option>
+                      <option value="Pharmacy">
+                        Pharmacy
+                      </option>
+                      <option value="Other">
+                        Other
+                      </option>
+                    </select>
+                    <input
+                      type="text"
+                      name="yearAndDepartment"
+                      class="form-control border-bottom border-dark"
+                      id="nameInput"
+                      placeholder="Year and Department (e.g., 3rd CSE)"
                       required
                     />
                   </div>
@@ -1335,27 +1365,21 @@
                       id="eventCategorySelect"
                       required
                     >
-                      <option value="Talks & Speeches">Talks & Speeches</option>
-                      <option value="Cultural Performances">
-                        Cultural Performances
+                      <option value="Musical Chair">Musical Chair</option>
+                      <option value="Uriyadi">
+                        Uriyadi
                       </option>
-                      <option value="Athapookkalam Contest">
-                        Athapookkalam Contest
+                      <option value="Sundarikku Pottu Thodal">
+                        Sundarikku Pottu Thodal
                       </option>
-                      <option value="Fun Games">Fun Games</option>
-                      <option value="Competitions">
-                        Competitions (Uriyadi, Tug of War, etc.)
+                      <option value="Thug of War">Thug of War (Team)</option>
+                      <option value="Chaakkil Ottam">
+                        Chaakkil Ottam
+                      </option>
+                      <option value="Other">
+                        Other
                       </option>
                     </select>
-                  </div>
-                  <div>
-                    <textarea
-                      name="comment"
-                      class="form-control border-bottom border-dark"
-                      id="commentsInput"
-                      placeholder="Additional Comments (optional)"
-                      rows="1"
-                    ></textarea>
                   </div>
                   <button
                     type="submit"
@@ -1527,9 +1551,18 @@
             </ul>
           </div>
           <div class="col-md-4 col-xl-3 mb-8 mb-xl-0">
-            <p class="mb-0 text-white text-opacity-70 text-md-end">
+            <p class="mb-0 text-white text-opacity-70">
               © SSEI Onam'25 copyright 2025
             </p>
+            <br>
+            <br>
+            <p class="mb-0 text-white text-opacity-70">
+              If facing any issues
+            </p>
+            <a href="mailto:developer@justsomemallus.in"
+                      style="font-size: small;color: white;"
+                      >developer@justsomemallus.in</a
+                    >
           </div>
         </div>
       </div>
